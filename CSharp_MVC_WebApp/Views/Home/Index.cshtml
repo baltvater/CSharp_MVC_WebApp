@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<input type="text" id="inputString" />
+<input type="button" id="go" value="Go" />
+
+<script>
+    $('#go').click(function () {
+        $.ajax({
+            url: '/Home/ReverseString',
+            data: {inputString: $('#inputString').val()},
+            success: function (data) {
+                alert(data);
+            },
+            error: function (ex) {
+                alert(ex.text);
+            }
+        });
+    });
+</script>
